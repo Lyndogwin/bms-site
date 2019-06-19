@@ -1,7 +1,3 @@
-#vascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
   build:
@@ -13,16 +9,50 @@ jobs:
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
-
-    working_directory: ~/repo
-
     steps:
       - checkout
+      - run:
+              name: build project
+              command: |
+                      npm install
+                      npm run export
+                      cp CNAME __sapper/export/CNAME
+                      cp -r .circleci/ __sapper__/export/.circleci/
+      - persists_to_workspace: 
+              root: __sapper__
+              paths: export/*
+ 
+deploy:
+  docker:
+    - image: node
+  steps:
+    - checkout
+    - attach_workspace:
+        at: __sapper__
+    - add_ssh_keys:
+        fingerprints:
+          - '46:85:46:1c:b4:a9:cd:28:9d:34:ee:f1:44:cb:d7:b3'
+    - run:
+        name: install gh-pages npm package
+        command: |
+          npm install -g --silent gh-pages
+          git config user.email "bbost9@uncc.edu"
+          git config user.name "Lyndogwin"
+    - run:
+        Name: Deploy static site to gh-pages branch
+        command: gh-pages -t --dist __sapper__/export/
 
-      # Download and cache dependencies
-
-      - run: npm install
-
-
-      # run tests!
-      - run: npm run dev
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
