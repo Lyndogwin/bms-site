@@ -33,7 +33,7 @@ deploy:
         name: install gh-pages npm package
         command: |
           npm install -g --silent gh-pages
-          git config user.email "Lyndogwin@bms-site"
+          git config user.email "Lyndogwin@projectpseudonym.co"
           git config user.name "Lyndogwin"
     - run:
         Name: Deploy static site to gh-pages branch
