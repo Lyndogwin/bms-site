@@ -6,23 +6,47 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: node
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
-    working_directory: ~/repo
-
     steps:
       - checkout
+      - run: 
+          name: build project
+          command: | 
+            npm install
+            npm run export
+            cp CNAME __sapper__/export/CNAME
+            cp -r .circleci/ __sapper__/export/.circleci/
+      - persist_to_workspace:
+          root: __sapper__
+          paths: export/* 
+  deploy:
+    docker:
+      - image: node
+    steps:
+      - checkout
+      - attach_workspace:
+          at: __sapper__
+      - run:
+          name: install gh-pages npm package
+          command: |
+            npm install -g --silent gh-pages
+            git config user.email "ci-build@projectpseudonym.co"
+            git config user.name "ci-build"
+      - run: 
+          Name: Deploy static site to gh-pages branch
+          command: gh-pages -t --dist __sapper__/export/
 
-      # Download and cache dependencies
-
-      - run: npm install
-
-
-      # run tests!
-      - run: npm run dev
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
