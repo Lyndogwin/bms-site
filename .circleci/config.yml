@@ -15,7 +15,7 @@ jobs:
                       npm run export
                       cp CNAME __sapper/export/CNAME
                       cp -r .circleci/ __sapper__/export/.circleci/
-      - persists_to_workspace: 
+      - persist_to_workspace: 
               root: __sapper__
               paths: export/*
  
