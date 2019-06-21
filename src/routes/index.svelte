@@ -36,10 +36,11 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
-<h1>Welcome to BMS</h1>
+<h1>Welcome to Project Pseudonym</h1>
+<p>Nerd Service Provider</p>
 
 <figure>
-	<img alt='BMS Logo' src='BMS-logo.png'>
+	<img alt='Logo' src='logo-512.png'>
 	<figcaption></figcaption>
 </figure>
 
