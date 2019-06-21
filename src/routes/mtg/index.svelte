@@ -11,7 +11,7 @@
         <h3>{life}</h3>
         <button class="btn" on:click={addLife}>+1</button>
         {#if life != 0}
-            <button class="btn" on:click={subLife}>-1</button>
+            <button class="btn btn-dark" on:click={subLife}>-1</button>
         {/if}
     </div>
 </div>
