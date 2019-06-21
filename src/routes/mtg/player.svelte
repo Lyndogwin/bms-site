@@ -1,0 +1,15 @@
+<script>
+    export let name;
+    export let life;
+    const addLife = () => (life += 1)
+    const subLife = () => (life -= 1)
+</script>
+
+<div class="card">
+    <h1>{name}</h1>
+    <h3>{life}</h3>
+    <button class="btn" on:click={addLife}>+1</button>
+    {#if life != 0}
+        <button class="btn btn-dark" on:click={subLife}>-1</button>
+    {/if}
+</div>

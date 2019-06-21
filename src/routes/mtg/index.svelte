@@ -1,17 +1,31 @@
 <script>
-    let name = "Player1"
-    let life = 20
-    const addLife = () => (life += 1)
-    const subLife = () => (life -= 1)
+    import Player from "./player.svelte"
+    import NewPlayer from "./addPlayer.svelte"
+    let players = [
+        {
+            name:"Player1",
+            life:20
+        },
+        {
+            name:"Player2",
+            life:20
+        }
+    ]
+    const addPlayer = e => {
+        const newPlayer = e.detail;
+        players = [...players, newPlayer];
+    };
 </script>
-
 <div class="container">
-    <div class="card">
-        <h1>{name}</h1>
-        <h3>{life}</h3>
-        <button class="btn" on:click={addLife}>+1</button>
-        {#if life != 0}
-            <button class="btn btn-dark" on:click={subLife}>-1</button>
-        {/if}
-    </div>
+    <NewPlayer on:addplayer={addPlayer} />
+</div>
+    
+<div class="container">
+    {#if players.length === 0}
+        <h1>No Players</h1>
+    {:else}
+        {#each players as Player}
+            <Player name={Player.name} life={Player.life} />
+        {/each}
+    {/if}
 </div>
