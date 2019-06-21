@@ -9,10 +9,10 @@
 
 const posts = [
 	{
-		title: 'Chromate in Effluent',
-		slug: 'what-is-sapper',
+		title: 'MTG BattleField Manager',
+		slug: 'MTG',
 		html: `
-	<p><iframe width='100%' height='1500' frameborder="0" src="https://docs.google.com/document/d/e/2PACX-1vRyb9td3yuxU0FDclUY0gY3_CLptWCD0l4MLKXTYihWfL4UDcDMCPpcSBtSylhKZedh404yJkAKU6n-/pub?embedded=true"></iframe></p>
+	<p></p>
 		`
 	}
 
