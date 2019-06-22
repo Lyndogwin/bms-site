@@ -16,7 +16,7 @@
 	}
 
 	img {
-		width: 100%;
+		width: 40%;
 		max-width: 1500px;
 		margin: 0 0 1em 0;
 	}
@@ -33,14 +33,14 @@
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Project Pseudonym</title>
 </svelte:head>
 
 <h1>Welcome to Project Pseudonym</h1>
 <p>Nerd Service Provider</p>
 
 <figure>
-	<img alt='Logo' src='logo-512.png'>
+	<img alt='Logo' src='dark-mage-small.gif'>
 	<figcaption></figcaption>
 </figure>
 
