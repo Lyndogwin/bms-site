@@ -15,6 +15,9 @@
         const newPlayer = e.detail;
         players = [...players, newPlayer];
     };
+    const removePlayer = e => {
+        players = players.filter (player => player.name !== e.detail);
+    };
 </script>
 <div class="container">
     <NewPlayer on:addplayer={addPlayer} />
@@ -24,8 +27,12 @@
     {#if players.length === 0}
         <h1>No Players</h1>
     {:else}
-        {#each players as Player}
-            <Player name={Player.name} life={Player.life} />
+        {#each players as player}
+            <Player 
+                name={player.name} 
+                life={player.life} 
+                on:removeplayer={removePlayer} 
+            />
         {/each}
     {/if}
 </div>
