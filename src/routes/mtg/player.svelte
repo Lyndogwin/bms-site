@@ -13,14 +13,14 @@
     let tokens = [
         {
             name: "token1",
-            color: "black",
+            color: "Black",
             power: 4,
             tough: 4,
             ability: "flying"
         },
         {
             name: "token2",
-            color: "blue",
+            color: "Blue",
             power: 4,
             tough: 4,
             ability: "haste"

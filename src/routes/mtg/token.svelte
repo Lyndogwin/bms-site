@@ -19,19 +19,19 @@
 
 <div class="card grid-2">
     <h2>{name}</h2>
-    <h3>{color}</h3>
-    <div class="container">
-        <div class="grid-3">
-            <button class="btn btn-sm" on:click={addPower}>+1p</button>
-            <h3>Power:{power}</h3>
-            <button class="btn btn-sm" on:click={subPower}>-1p</button>
+    <h3>Color: {color}</h3>
+    <div class="container grid-2">
+        <div class="btn-block">
+            <button class="btn btn-success btn-sm" on:click={addPower}>+1p</button>
+            <h3>Power: {power}</h3>
+            <button class="btn btn-dark btn-sm" on:click={subPower}>-1p</button>
         </div>
-        <div class="grid-3">
-            <button class="btn btn-sm" on:click={addTough}>+1t</button>
-            <h3>Toughness:{tough}</h3>
-            <button class="btn btn-sm" on:click={subTough}>-1t</button>
+        <div class="btn-block">
+            <button class="btn btn-success btn-sm" on:click={addTough}>+1t</button>
+            <h3>Toughness: {tough}</h3>
+            <button class="btn btn-dark btn-sm" on:click={subTough}>-1t</button>
         </div>
-        <h3>{ability}</h3>
-        <button class="btn btn-danger btn-sm" on:click={onDelete}>X</button>
     </div>
+        <h3>Abilities: {ability}</h3>
+        <button class="btn btn-danger btn-sm" on:click={onDelete}>X</button>
 </div>

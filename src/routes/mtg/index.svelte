@@ -18,6 +18,14 @@
     const removePlayer = e => {
         players = players.filter (player => player.name !== e.detail);
     };
+    const saveGame = () => {
+        players.forEach = player => {
+        //~psedocode~
+        //player.saveGame = e => {
+            
+        //}
+        };
+    }
 </script>
 <div class="container">
     <NewPlayer on:addplayer={addPlayer} />

@@ -266,6 +266,7 @@ select,
 textarea {
   display: block;
   width: 100% !important;
+  height: inherit;
   padding: 0.4rem;
   font-size: inherit;
   border: 1px solid #ccc;

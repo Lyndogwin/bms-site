@@ -19,11 +19,28 @@
             ability: ""
         };
     };
+    let colors = [{ id: 1, text: "Black"},
+                  { id: 2, text: "White"},
+                  { id: 3, text: "Red"},
+                  { id: 4, text: "Green"},
+                  { id: 5, text: "Blue"},
+                  { id: 6, text: "Colorless"}];
 </script>
 
+<style>
+    select{
+        
+    }
+</style>
 <form on:submit={onSubmit} class="grid-3">
     <input type="text" placeholder="Token Name" bind:value={token.name} />
-    <input type="text" placeholder="Color" bind:value={token.color} />
+    <select placeholder={"Color"} bind:value={token.color} >
+		{#each colors as c_choice}
+			<option>
+				{c_choice.text}
+			</option>
+		{/each}
+	</select>
     <input type="number" placeholder="Power" bind:value={token.power} />
     <input type="number" placeholder="Toughnes" bind:value={token.tough} />
     <input type="text" placeholder="Abilities" bind:value={token.ability} />
