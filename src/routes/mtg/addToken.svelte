@@ -2,11 +2,11 @@
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
     let token = {
-        name: "Standard",
+        name: "",
         color: "Colorless",
-        power: 0,
-        tough: 1,
-        ability: "none"
+        power: null,
+        tough: null,
+        ability: ""
     };
     const onSubmit = e => {
         e.preventDefault();
@@ -14,8 +14,8 @@
         token = {
             name: "",
             color: "",
-            power: 0,
-            tough: 0,
+            power: null,
+            tough: null,
             ability: ""
         };
     };
@@ -29,14 +29,14 @@
 
 <style>
     select{
-        
+         
     }
 </style>
 <form on:submit={onSubmit} class="grid-3">
     <input type="text" placeholder="Token Name" bind:value={token.name} />
-    <select placeholder={"Color"} bind:value={token.color} >
+    <select type="text" class="form-group bg-white" bind:value={token.color} >
 		{#each colors as c_choice}
-			<option>
+            <option selected>
 				{c_choice.text}
 			</option>
 		{/each}
