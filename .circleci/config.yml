@@ -28,7 +28,7 @@ jobs:
           at: __sapper__
       - add_ssh_keys:
           fingerprints:
-            - '46:85:46:1c:b4:a9:cd:28:9d:34:ee:f1:44:cb:d7:b3'
+            - '08:7d:69:08:2b:71:56:9a:02:62:14:9a:38:36:ab:0f'
       - run:
           name: install gh-pages npm package
           command: |
