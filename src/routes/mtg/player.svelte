@@ -4,7 +4,7 @@
     
     import Token from "./token.svelte"
     import NewToken from "./addToken.svelte"
-    
+    import Tablink from "./tabLink.svelte" 
     export let name;
     export let life;
     const addLife = () => (life += 1)
@@ -34,8 +34,8 @@
     const removeToken = e => { 
         tokens = tokens.filter (token => token.name !== e.detail);
     };
-    const openToken = (value) => {
-        token = tokens.filter(t => t.name === value);
+    const openToken = e => {
+        token = tokens.filter(t => t.name === e.detail);
         console.log(token);
     };
     // Staging for game saves
@@ -79,7 +79,10 @@
 
         <div class="tabs">
             {#each tokens as temp_token}
-                <button class="tablinks" on:click={openToken(temp_token.name)}>{temp_token.name}</button>
+                <Tablink
+                    name={temp_token.name}
+                    on:opentoken={openToken}
+                />
             {/each}
         </div>
         {#if token !== undefined}
