@@ -10,23 +10,16 @@
     const addLife = () => (life += 1)
     const subLife = () => (life -= 1)
     const onDelete = () => dispatch("removeplayer", name);
-    let token;
-    let tokens = [
-        {
-            name: "token1",
-            color: "Black",
-            power: 4,
-            tough: 4,
-            ability: "flying"
-        },
-        {
-            name: "token2",
-            color: "Blue",
-            power: 4,
-            tough: 4,
-            ability: "haste"
-        }
-    ]
+    
+    let tokens = [{
+        name:"TOKEN TABS: ",
+        color:"Colorless",
+        power:null,
+        tough:null,
+        ability:"None"
+    }];
+    let token = tokens[0];
+
     const addToken = e => {
         const newToken = e.detail;
         tokens = [...tokens, newToken];
@@ -35,7 +28,7 @@
         tokens = tokens.filter (token => token.name !== e.detail);
     };
     const openToken = e => {
-        token = tokens.filter(t => t.name === e.detail);
+        token = tokens.filter(t => t.name === e.detail)[0];
         console.log(token);
     };
     // Staging for game saves
@@ -49,7 +42,7 @@
 <div class="card">
     <h1>{name}</h1>
     <h3>{life}</h3>
-    <button class="btn" on:click={addLife}>+1</button>
+    <button class="btn btn-success" on:click={addLife}>+1</button>
     {#if life > 0}
         <button class="btn btn-dark" on:click={subLife}>-1</button>
     {/if}
@@ -57,22 +50,6 @@
     <div class="container">
         <NewToken on:addtoken={addToken} />
     </div>
-    <!--<div class="container grid-2">
-        {#if tokens.length < 1}
-            <h2> No Tokens Loaded</h2>
-        {:else}
-            {#each tokens as token}
-                <Token 
-                    name={token.name}
-                    color={token.color}
-                    power={token.power}
-                    tough={token.tough}
-                    ability={token.ability}
-                    on:removetoken={removeToken}
-                />
-            {/each}
-        {/if}
-    </div>-->
     {#if tokens.length < 1}
         <h2>No Tokens Loaded</h2>
     {:else}
@@ -85,14 +62,14 @@
                 />
             {/each}
         </div>
-        {#if token !== undefined}
+        {#if (tokens.filter(t => t.name === token.name)[0] !== undefined) && (token.power != null)}
             <div class="tabcontent">
                 <Token
-                    name={token[0].name}
-                    color={token[0].color}
-                    power={token[0].power}
-                    tough={token[0].tough}
-                    ability={token[0].ability}
+                    name={token.name}
+                    color={token.color}
+                    power={token.power}
+                    tough={token.tough}
+                    ability={token.ability}
                     on:removetoken={removeToken}
                 />
             </div>
