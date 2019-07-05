@@ -10,6 +10,7 @@
     const addLife = () => (life += 1)
     const subLife = () => (life -= 1)
     const onDelete = () => dispatch("removeplayer", name);
+    let token;
     let tokens = [
         {
             name: "token1",
@@ -33,6 +34,10 @@
     const removeToken = e => { 
         tokens = tokens.filter (token => token.name !== e.detail);
     };
+    const openToken = (value) => {
+        token = tokens.filter(t => t.name === value);
+        console.log(token);
+    };
     // Staging for game saves
     export let savePlayer = { 
         e_name: name,
@@ -52,7 +57,7 @@
     <div class="container">
         <NewToken on:addtoken={addToken} />
     </div>
-    <div class="container grid-2">
+    <!--<div class="container grid-2">
         {#if tokens.length < 1}
             <h2> No Tokens Loaded</h2>
         {:else}
@@ -67,5 +72,27 @@
                 />
             {/each}
         {/if}
-    </div>
+    </div>-->
+    {#if tokens.length < 1}
+        <h2>No Tokens Loaded</h2>
+    {:else}
+
+        <div class="tabs">
+            {#each tokens as temp_token}
+                <button class="tablinks" on:click={openToken(temp_token.name)}>{temp_token.name}</button>
+            {/each}
+        </div>
+        {#if token !== undefined}
+            <div class="tabcontent">
+                <Token
+                    name={token[0].name}
+                    color={token[0].color}
+                    power={token[0].power}
+                    tough={token[0].tough}
+                    ability={token[0].ability}
+                    on:removetoken={removeToken}
+                />
+            </div>
+        {/if}
+    {/if}
 </div>
