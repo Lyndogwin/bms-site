@@ -13,7 +13,7 @@
     
     let tokens = [{
         name:"TOKEN TABS: ",
-        color:"Colorless",
+        color:"",
         power:null,
         tough:null,
         ability:"None"
@@ -58,6 +58,7 @@
             {#each tokens as temp_token}
                 <Tablink
                     name={temp_token.name}
+                    color={temp_token.color}
                     on:opentoken={openToken}
                 />
             {/each}

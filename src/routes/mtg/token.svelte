@@ -17,7 +17,7 @@
 </script>
 
 
-<div class="card grid-2">
+<div class="card {color}">
     <h2>{name}</h2>
     <h3>Color: {color}</h3>
     <div class="container grid-2">
