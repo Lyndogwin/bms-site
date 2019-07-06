@@ -7,13 +7,14 @@
     export let power;
     export let tough;
     export let ability;
+    export let id;
     
     const addPower = () => (power += 1);
     const subPower = () => (power -= 1);
     const addTough = () => (tough += 1);
     const subTough = () => (tough -= 1);
 
-    const onDelete = () => dispatch("removetoken", name);
+    const onDelete = () => dispatch("removetoken", id);
 </script>
 
 

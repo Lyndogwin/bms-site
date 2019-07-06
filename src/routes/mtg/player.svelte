@@ -16,7 +16,8 @@
         color:"",
         power:null,
         tough:null,
-        ability:"None"
+        ability:"None",
+        id: 0
     }];
     let token = tokens[0];
 
@@ -25,10 +26,10 @@
         tokens = [...tokens, newToken];
     };
     const removeToken = e => { 
-        tokens = tokens.filter (token => token.name !== e.detail);
+        tokens = tokens.filter (token => token.id !== e.detail);
     };
     const openToken = e => {
-        token = tokens.filter(t => t.name === e.detail)[0];
+        token = tokens.filter(t => t.id === e.detail)[0];
         console.log(token);
     };
     // Staging for game saves
@@ -59,6 +60,7 @@
                 <Tablink
                     name={temp_token.name}
                     color={temp_token.color}
+                    id={temp_token.id}
                     on:opentoken={openToken}
                 />
             {/each}
@@ -71,6 +73,7 @@
                     power={token.power}
                     tough={token.tough}
                     ability={token.ability}
+                    id={token.id}
                     on:removetoken={removeToken}
                 />
             </div>

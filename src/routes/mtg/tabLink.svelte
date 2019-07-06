@@ -3,7 +3,8 @@
     const dispatch = createEventDispatcher();
     export let name;
     export let color;
-    const onOpen = () => dispatch("opentoken", name);
+    export let id;
+    const onOpen = () => dispatch("opentoken", id);
 </script>
 
 <button class="btn {color}" on:click={onOpen}>{name}</button>

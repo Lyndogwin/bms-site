@@ -1,12 +1,22 @@
 <script>
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
+
+    var rand = () => {
+        return Math.random().toString(36).substr(2); // remove `0.`
+    };
+
+    var id_gen = () => {
+        return rand() + rand(); // to make it longer
+    };
+
     let token = {
         name: "",
         color: "Colorless",
         power: null,
         tough: null,
-        ability: ""
+        ability: "",
+        id: id_gen()
     };
     const onSubmit = e => {
         e.preventDefault();
@@ -16,7 +26,8 @@
             color: "",
             power: null,
             tough: null,
-            ability: ""
+            ability: "",
+            id: id_gen()
         };
     };
     let colors = [{ id: 1, text: "Black"},
