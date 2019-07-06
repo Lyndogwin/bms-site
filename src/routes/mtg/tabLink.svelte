@@ -7,4 +7,4 @@
     const onOpen = () => dispatch("opentoken", id);
 </script>
 
-<button class="btn {color}" on:click={onOpen}>{name}</button>
+<button class="btn btn-link {color}" on:click={onOpen}>{name}</button>

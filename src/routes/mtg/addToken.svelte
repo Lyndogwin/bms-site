@@ -43,7 +43,7 @@
          
     }
 </style>
-<form on:submit={onSubmit} class="grid-3">
+<form on:submit={onSubmit} class="grid-3 form-container form-group">
     <input type="text" placeholder="Token Name" bind:value={token.name} />
     <select type="text" class="form-group bg-white" bind:value={token.color} >
 		{#each colors as c_choice}
