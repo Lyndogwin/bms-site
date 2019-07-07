@@ -2,13 +2,7 @@
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
 
-    var rand = () => {
-        return Math.random().toString(36).substr(2); // remove `0.`
-    };
-
-    var id_gen = () => {
-        return rand() + rand(); // to make it longer
-    };
+    let copies = 1;
 
     let token = {
         name: "",
@@ -16,19 +10,21 @@
         power: null,
         tough: null,
         ability: "",
-        id: id_gen()
+        id: 0 
     };
     const onSubmit = e => {
         e.preventDefault();
-        dispatch("addtoken",token);
+
+        dispatch("addtoken",[token,copies]);
         token = {
             name: "",
             color: "Colorless",
             power: null,
             tough: null,
             ability: "",
-            id: id_gen()
+            id: 0
         };
+        copies = 1;
     };
     let colors = [{ id: 1, text: "Black"},
                   { id: 2, text: "White"},
@@ -55,5 +51,6 @@
     <input type="number" placeholder="Power" bind:value={token.power} />
     <input type="number" placeholder="Toughnes" bind:value={token.tough} />
     <input type="text" placeholder="Abilities" bind:value={token.ability} />
+    <input type="number" placeholder="Copies" bind:value={copies} />
     <input type="submit" class="btn btn-primary" value="Add Token" />
 </form>

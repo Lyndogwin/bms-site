@@ -11,6 +11,14 @@
     const subLife = () => (life -= 1)
     const onDelete = () => dispatch("removeplayer", name);
     
+    var rand = () => {
+        return Math.random().toString(36).substr(2); // remove `0.`
+    };
+
+    var id_gen = () => {
+        return rand() + rand(); // to make it longer
+    };
+
     let tokens = [{
         name:"TOKEN TABS: ",
         color:"",
@@ -22,8 +30,17 @@
     let token = tokens[0];
 
     const addToken = e => {
-        const newToken = e.detail;
-        tokens = [...tokens, newToken];
+        console.log(e.detail[0]);
+        for(var i = 0; i < e.detail[1]; i++){
+            var newToken = e.detail[0];
+            tokens = [...tokens, {name:newToken.name,
+                                  color:newToken.color,
+                                  power:newToken.power,
+                                  tough:newToken.tough,
+                                  ability:newToken.ability,
+                                  id:id_gen()}] //itteration issue
+            console.log(tokens);
+        };
     };
     const removeToken = e => { 
         tokens = tokens.filter (token => token.id !== e.detail);
@@ -36,7 +53,8 @@
     export let savePlayer = { 
         e_name: name,
         e_life: life,
-        e_tokens: tokens
+        e_tokens: tokens,
+        e_matchID: id_gen()
     }
 </script>
 
@@ -65,7 +83,7 @@
                 />
             {/each}
         </div>
-        {#if (tokens.filter(t => t.name === token.name)[0] !== undefined) && (token.power != null)}
+        {#if (tokens.filter(t => t.id === token.id)[0] !== undefined) && (token.power != null)}
             <div class="tabcontent">
                 <Token
                     name={token.name}
