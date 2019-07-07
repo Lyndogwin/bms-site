@@ -1,9 +1,13 @@
 :root {
-  --primary-color: #204f6e;
+  --primary-color: #ff3e00;
   --dark-color: #333333;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --mtg-green:#4CB009;
+  --mtg-blue:#1769F6;
+  --mtg-red:#F63517;
+  --mtg-colorless:#A7AFBE;
 }
 body {
 	margin: 0;
@@ -235,22 +239,22 @@ code {
   border: #ccc solid 1px;
 }
 .Blue{
-    background:#1769F6;
+    background:var(--mtg-blue);
     color: #fff;
     border: #ccc solid 1px;
 }
 .Green{
-    background:#4CB009;
+    background:var(--mtg-green);
     color: #fff;
     border: #ccc solid 1px;
 }
 .Red{
-    background:#F63517;
+    background:var(--mtg-red);
     color: #fff;
     border: #ccc solid 1px;
 }
 .Colorless{
-    background:#A7AFBE;
+    background:var(--mtg-colorless);
     color: #fff;
     border: #ccc solid 1px;
 }

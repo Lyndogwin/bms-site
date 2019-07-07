@@ -23,7 +23,7 @@
         dispatch("addtoken",token);
         token = {
             name: "",
-            color: "",
+            color: "Colorless",
             power: null,
             tough: null,
             ability: "",
@@ -47,7 +47,7 @@
     <input type="text" placeholder="Token Name" bind:value={token.name} />
     <select type="text" class="form-group bg-white" bind:value={token.color} >
 		{#each colors as c_choice}
-            <option selected>
+            <option selected="selected">
 				{c_choice.text}
 			</option>
 		{/each}
