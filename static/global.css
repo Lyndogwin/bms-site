@@ -465,11 +465,11 @@ table th {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: var(--primary-color);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px var(--primary-color);
 }
 
 input:checked + .slider:before {
@@ -482,7 +482,6 @@ input:checked + .slider:before {
 .slider.round {
   border-radius: 34px;
 }
-
 .slider.round:before {
   border-radius: 50%;
 }

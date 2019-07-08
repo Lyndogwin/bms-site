@@ -83,6 +83,5 @@
         </div>
         <h3>Abilities: {ability}</h3>
         <button class="btn btn-danger btn-sm" on:click={onDelete}>X</button>
-        <button class="btn btn-primary btn-sm" on:click={onChange}>UPDATE</button>
     </div>
 </div>
