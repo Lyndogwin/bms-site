@@ -15,10 +15,24 @@
        console.log("changing state")
     };
 
-    const addPower = () => (power += 1);
-    const subPower = () => (power -= 1);
-    const addTough = () => (tough += 1);
-    const subTough = () => (tough -= 1);
+    const addPower = () => {
+        power += 1;
+        onChange();
+    };
+    const subPower = () => {
+        power -= 1;
+        onChange();
+    };
+    const addTough = () => {
+        tough += 1;
+        onChange();
+    };
+    const subTough = () => { 
+        tough -= 1;
+        onChange();
+    };
+
+    let tap_detect = false;
 
     const onDelete = () => dispatch("removetoken", id);
 
@@ -39,6 +53,22 @@
         <input type="checkbox" bind:checked={tapped}>
         <span class="slider round"></span>
     </label>
+    <div style="display:none;">
+        {#if tapped}
+            {tap_detect = true}
+            {onChange()}
+        {:else}
+            {#if tap_detect}
+                {onChange()}
+                {tap_detect = false}
+            {/if}
+        {/if}
+    </div>
+    {#if tapped}
+        <p>Tapped</p>
+    {:else}
+        <p>Not Tapped</p>
+    {/if}
     <div class="container">
         <div class="btn-link">
             <h3>Power: {power}</h3>
