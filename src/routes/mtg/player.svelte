@@ -25,7 +25,9 @@
         power:null,
         tough:null,
         ability:"None",
+        tapped: false,
         id: 0
+
     }];
     let token = tokens[0];
 
@@ -38,7 +40,8 @@
                                   power:newToken.power,
                                   tough:newToken.tough,
                                   ability:newToken.ability,
-                                  id:id_gen()}] //itteration issue
+                                  tapped:newToken.tapped,
+                                  id:id_gen()}]
             console.log(tokens);
         };
     };
@@ -47,7 +50,20 @@
     };
     const openToken = e => {
         token = tokens.filter(t => t.id === e.detail)[0];
-        console.log(token);
+    };
+    const updateToken = e => {
+        var itterate = tokens.length;
+        token = e.detail;
+        for(var i = 0; i < itterate; i++){
+            for(var key in tokens[i]){
+                if (tokens[i][key] === token.id){
+                    console.log(token);
+                    tokens.splice(i,1,token);//should start at index +1
+                    console.log(tokens);
+                    break;
+                };
+            };
+        };
     };
     // Staging for game saves
     export let savePlayer = { 
@@ -91,8 +107,10 @@
                     power={token.power}
                     tough={token.tough}
                     ability={token.ability}
+                    tapped={token.tapped}
                     id={token.id}
                     on:removetoken={removeToken}
+                    on:update={updateToken}
                 />
             </div>
         {/if}

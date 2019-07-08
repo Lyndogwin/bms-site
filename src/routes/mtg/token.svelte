@@ -7,20 +7,38 @@
     export let power;
     export let tough;
     export let ability;
+    export let tapped;
     export let id;
-    
+
+    while (tapped) {
+       // add dispatch
+       console.log("changing state")
+    };
+
     const addPower = () => (power += 1);
     const subPower = () => (power -= 1);
     const addTough = () => (tough += 1);
     const subTough = () => (tough -= 1);
 
     const onDelete = () => dispatch("removetoken", id);
+
+    const onChange = () => dispatch("update", {name:name,
+                                               color:color,
+                                               power:power,
+                                               tough:tough,
+                                               ability:ability,
+                                               tapped:tapped,
+                                               id:id});
 </script>
 
 
 <div class="card {color}">
     <h2>{name}</h2>
     <h3>Color: {color}</h3>
+    <label class="switch">
+        <input type="checkbox" bind:checked={tapped}>
+        <span class="slider round"></span>
+    </label>
     <div class="container">
         <div class="btn-link">
             <h3>Power: {power}</h3>
@@ -35,5 +53,6 @@
         </div>
         <h3>Abilities: {ability}</h3>
         <button class="btn btn-danger btn-sm" on:click={onDelete}>X</button>
+        <button class="btn btn-primary btn-sm" on:click={onChange}>UPDATE</button>
     </div>
 </div>

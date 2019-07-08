@@ -10,6 +10,7 @@
         power: null,
         tough: null,
         ability: "",
+        tapped: false,
         id: 0 
     };
     const onSubmit = e => {
@@ -22,6 +23,7 @@
             power: null,
             tough: null,
             ability: "",
+            tapped: false,
             id: 0
         };
         copies = 1;
