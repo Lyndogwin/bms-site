@@ -4,11 +4,30 @@
     let players = [
         {
             name:"Player1",
-            life:20
+            life:20,
+            tokens: [{
+                name:"TOKEN TABS: ",
+                color:"",
+                power:null,
+                tough:null,
+                ability:"None",
+                tapped: false,
+                id: 0
+            }]
         },
         {
             name:"Player2",
-            life:20
+            life:20,
+            tokens:  [{
+                name:"TOKEN TABS: ",
+                color:"",
+                power:null,
+                tough:null,
+                ability:"None",
+                tapped: false,
+                id: 0
+
+            }]
         }
     ]
     const addPlayer = e => {
@@ -38,7 +57,8 @@
         {#each players as player}
             <Player 
                 name={player.name} 
-                life={player.life} 
+                life={player.life}
+                tokens={player.tokens}
                 on:removeplayer={removePlayer} 
             />
         {/each}

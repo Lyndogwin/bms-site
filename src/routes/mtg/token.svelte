@@ -10,11 +10,6 @@
     export let tapped;
     export let id;
 
-    while (tapped) {
-       // add dispatch
-       console.log("changing state")
-    };
-
     const addPower = () => {
         power += 1;
         onChange();

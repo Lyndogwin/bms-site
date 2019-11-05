@@ -36,8 +36,8 @@
 	<title>Project Pseudonym</title>
 </svelte:head>
 
-<h1>Welcome to Project Pseudonym</h1>
-<p>Nerd Service Provider</p>
+<h1>Project Pseudonym</h1>
+<p>Your useless Service Provider</p>
 
 <figure>
 	<img alt='Logo' src='dark-mage-small.gif'>

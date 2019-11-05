@@ -19,7 +19,7 @@
         return rand() + rand(); // to make it longer
     };
 
-    let tokens = [{
+    export let tokens;  /*= [{
         name:"TOKEN TABS: ",
         color:"",
         power:null,
@@ -28,7 +28,7 @@
         tapped: false,
         id: 0
 
-    }];
+    }];*/
     let token = tokens[0];
 
     const addToken = e => {
@@ -65,13 +65,6 @@
             };
         };
     };
-    // Staging for game saves
-    export let savePlayer = { 
-        e_name: name,
-        e_life: life,
-        e_tokens: tokens,
-        e_matchID: id_gen()
-    }
 </script>
 
 <div class="card">

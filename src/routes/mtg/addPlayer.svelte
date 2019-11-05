@@ -3,14 +3,32 @@
     const dispatch = createEventDispatcher();
     let player = {
         name: "",
-        life: 20
+        life: 20,
+        tokens: [{
+                name:"TOKEN TABS: ",
+                color:"",
+                power:null,
+                tough:null,
+                ability:"None",
+                tapped: false,
+                id: 0
+        }]
     };
     const onSubmit = e => {
         e.preventDefault();
         dispatch("addplayer", player);
         player = {
             name: "",
-            life: 20
+            life: 20,
+            tokens: [{
+                name:"TOKEN TABS: ",
+                color:"",
+                power:null,
+                tough:null,
+                ability:"None",
+                tapped: false,
+                id: 0
+            }]
         };
     };
 </script>
