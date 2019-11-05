@@ -1,5 +1,5 @@
 # About
-using this gh-pages deployment to be extra on a tech com roll-play assignment
+using this gh-pages deployment to be extra on a tech com roll-play assignments
 # sapper-template
 
 The default [Sapper](https://github.com/sveltejs/sapper) template, with branches for Rollup and webpack. To clone it and get started:
