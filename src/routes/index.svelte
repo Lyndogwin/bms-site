@@ -37,7 +37,7 @@
 </svelte:head>
 
 <h1>Project Pseudonym</h1>
-<p>Your useless Service Provider</p>
+<p>The last place earth</p>
 
 <figure>
 	<img alt='Logo' src='dark-mage-small.gif'>
