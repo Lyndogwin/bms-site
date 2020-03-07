@@ -1,6 +1,9 @@
 import sirv from 'sirv';
 import polka from 'polka';
 import compression from 'compression';
+import marked from 'marked'
+import grayMatter from "gray-matter";
+
 import * as sapper from '@sapper/server';
 
 const { PORT, NODE_ENV } = process.env;
