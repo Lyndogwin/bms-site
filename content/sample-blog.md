@@ -1,12 +1,10 @@
 ---
 slug: 'sample-blog'
-title: 'Sample blog.'
+title: 'Sample Blog'
 ---
-
-# Sample title
 
 this is a sample blog post.
 
-``javascript
+```javascript
   console.log("test code highlight")
-``
+```
