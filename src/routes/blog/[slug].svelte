@@ -26,12 +26,21 @@
 		so we have to use the :global(...) modifier to target
 		all elements inside .content
 	*/
+	/* .content {
+		color: var(--dark-color);
+		background-color: #f9f9f9;
+		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
+		padding: 0.5em;
+		border-radius: 2px;
+		overflow-x: auto;
+	} */
 	.content :global(h2) {
 		font-size: 1.4em;
 		font-weight: 500;
 	}
 
 	.content :global(pre) {
+		/* color: var(--dark-color); */
 		background-color: #f9f9f9;
 		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
 		padding: 0.5em;
@@ -40,7 +49,8 @@
 	}
 
 	.content :global(pre) :global(code) {
-		background-color: transparent;
+		background-color: var(--light-color);
+		color: var(--dark-color); 
 		padding: 0;
 	}
 
@@ -60,5 +70,7 @@
 <h1>{post.title}</h1>
 
 <div class='content'>
+
 	{@html post.html}
+
 </div>

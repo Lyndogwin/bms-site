@@ -40,7 +40,7 @@
 <p>The last place earth</p>
 
 <figure>
-	<img alt='Logo' src='dark-mage-small.gif'>
+	<!-- <img alt='Logo' src='dark-mage.gif'> -->
 	<figcaption></figcaption>
 </figure>
 
