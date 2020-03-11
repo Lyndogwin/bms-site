@@ -1,4 +1,5 @@
 <script>
+    import * as index from "./index.js"
     import { createEventDispatcher } from "svelte";
     const dispatch = createEventDispatcher();
     let player = {
@@ -11,7 +12,7 @@
                 tough:null,
                 ability:"None",
                 tapped: false,
-                id: 0
+                id: index.id_gen()
         }]
     };
     const onSubmit = e => {
@@ -27,7 +28,7 @@
                 tough:null,
                 ability:"None",
                 tapped: false,
-                id: 0
+                id: index.id_gen()
             }]
         };
     };

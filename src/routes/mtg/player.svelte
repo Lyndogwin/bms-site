@@ -11,12 +11,12 @@
     const subLife = () => (life -= 1)
     const onDelete = () => dispatch("removeplayer", name);
     
-    var rand = () => {
+    export let rand = () => {
         return Math.random().toString(36).substr(2); // remove `0.`
     };
 
-    var id_gen = () => {
-        return rand() + rand(); // to make it longer
+    export let id_gen = () => {
+        return rand() + rand(); // to increase length
     };
 
     export let tokens;  /*= [{

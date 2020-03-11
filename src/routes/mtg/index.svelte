@@ -1,6 +1,7 @@
 <script>
     import Player from "./player.svelte"
     import NewPlayer from "./addPlayer.svelte"
+    import * as index from "./index.js"
     let players = [
         {
             name:"Player1",
@@ -12,7 +13,7 @@
                 tough:null,
                 ability:"None",
                 tapped: false,
-                id: 0
+                id: index.id_gen()
             }]
         },
         {
@@ -25,26 +26,44 @@
                 tough:null,
                 ability:"None",
                 tapped: false,
-                id: 0
+                id: index.id_gen()
 
             }]
         }
     ]
+    
     const addPlayer = e => {
         const newPlayer = e.detail;
         players = [...players, newPlayer];
+        players[players.length - 1].id = index.id_gen();
+        console.log(index.id_gen());
     };
+
     const removePlayer = e => {
         players = players.filter (player => player.name !== e.detail);
     };
+
     const saveGame = () => {
-        players.forEach = player => {
-        //~psedocode~
-        //player.saveGame = e => {
+        console.log("Saving game");
+        let state = JSON.stringify(players);
+        localStorage.setItem("state",state);
+        // players.forEach = player => {
+        //     // ~psedocode~
+        //     // player.saveGame = e => {
             
-        //}
-        };
-    }
+        //     // }
+
+        // };
+    };
+
+    const loadGame = () => {
+        if(localStorage.getItem("state")) {
+            console.log("Attempting to load game");
+            let state = localStorage.getItem("state");
+            players = JSON.parse(state);
+        }
+    };
+
 </script>
 <div class="container">
     <NewPlayer on:addplayer={addPlayer} />
@@ -63,4 +82,10 @@
             />
         {/each}
     {/if}
+</div>
+
+<div>
+    
+    <button class="btn btn-primary" on:click={saveGame}>Save game</button>
+    <button class="btn btn-primary" on:click={loadGame}>Load game</button>
 </div>
