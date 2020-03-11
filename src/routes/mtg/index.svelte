@@ -2,6 +2,7 @@
     import Player from "./player.svelte"
     import NewPlayer from "./addPlayer.svelte"
     import * as index from "./index.js"
+    let state = "";
     let players = [
         {
             name:"Player1",
@@ -13,7 +14,7 @@
                 tough:null,
                 ability:"None",
                 tapped: false,
-                id: index.id_gen()
+                id: 0
             }]
         },
         {
@@ -26,7 +27,7 @@
                 tough:null,
                 ability:"None",
                 tapped: false,
-                id: index.id_gen()
+                id: 0
 
             }]
         }
@@ -35,8 +36,7 @@
     const addPlayer = e => {
         const newPlayer = e.detail;
         players = [...players, newPlayer];
-        players[players.length - 1].id = index.id_gen();
-        console.log(index.id_gen());
+        
     };
 
     const removePlayer = e => {
@@ -45,8 +45,9 @@
 
     const saveGame = () => {
         console.log("Saving game");
-        let state = JSON.stringify(players);
+        state = JSON.stringify(players);
         localStorage.setItem("state",state);
+        // for(const value of players){console.log(value.tokens);};
         // players.forEach = player => {
         //     // ~psedocode~
         //     // player.saveGame = e => {
@@ -59,7 +60,7 @@
     const loadGame = () => {
         if(localStorage.getItem("state")) {
             console.log("Attempting to load game");
-            let state = localStorage.getItem("state");
+            state = localStorage.getItem("state");
             players = JSON.parse(state);
         }
     };

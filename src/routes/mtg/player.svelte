@@ -7,6 +7,7 @@
     import Tablink from "./tabLink.svelte" 
     export let name;
     export let life;
+    
     const addLife = () => (life += 1)
     const subLife = () => (life -= 1)
     const onDelete = () => dispatch("removeplayer", name);
@@ -42,7 +43,6 @@
                                   ability:newToken.ability,
                                   tapped:newToken.tapped,
                                   id:id_gen()}]
-            console.log(tokens);
         };
     };
     const removeToken = e => { 

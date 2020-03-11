@@ -12,7 +12,7 @@
                 tough:null,
                 ability:"None",
                 tapped: false,
-                id: index.id_gen()
+                id: 0
         }]
     };
     const onSubmit = e => {
@@ -28,7 +28,7 @@
                 tough:null,
                 ability:"None",
                 tapped: false,
-                id: index.id_gen()
+                id: 0
             }]
         };
     };
